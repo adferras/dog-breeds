@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import './BreedList.css';
 
 class BreedList extends Component {
   constructor() {
     super();
     this.state = {
       breeds: [],
-      breedImage: null
+      breedImage: null,
+      breed: ''
     };
   }
 
@@ -32,17 +34,25 @@ class BreedList extends Component {
         return results.json();
       })
       .then(data => {
-        this.setState({breedImage: data.message})
+        this.setState({breedImage: data.message, breed})
       })
   }
 
   render() {
     return (
-      <div className="Breeds">
+      <div className="breeds">
         <div className="breed-list">
           {this.state.breeds}
         </div>
-        <img src={this.state.breedImage} alt="breed" className="breed-image" />
+        { this.state.breed ?
+          <div className="breed-image__container">
+            <div className="breed-image">
+              <img src={this.state.breedImage} alt="breed" />
+            </div>
+            <button className="refresh-image" onClick={() => this.handleClick(this.state.breed)}>Get a new picture</button>
+          </div>
+        : null
+        }
       </div>
     );
   }

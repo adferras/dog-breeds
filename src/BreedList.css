@@ -1,0 +1,44 @@
+.breeds {
+  display: flex; }
+
+.breed-image {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center; }
+  .breed-image__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%; }
+  .breed-image img {
+    max-height: 90%; }
+
+.breed-list {
+  width: 30rem; }
+
+button {
+  background: #4fbdf4;
+  border-radius: 1.25rem;
+  border-width: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin: 2px;
+  outline: none;
+  padding: 0 .5rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: box-shadow 90ms ease-in-out, transform 90ms ease-in-out;
+  width: 200px; }
+  button:hover, button:focus {
+    box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2); }
+  button:active {
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.2), inset 0 100px rgba(0, 0, 0, 0.1);
+    transform: translate(0, 1px); }
+  button .refresh-image {
+    width: 40%;
+    margin: 20px; }
