@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`class BreedList extends _react.Component {
+  constructor() {
+    super();
+    this.state = {
+      breeds: [],
+      breedImage: null,
+      breed: '' };
+
+  }
+
+  componentDidMount() {
+    fetch('https://dog.ceo/api/breeds/list/all').
+    then(results => {
+      return results.json();
+    }).
+    then(data => {
+      let breeds = Object.keys(data.message).map(breed => {
+        return (
+          _react2.default.createElement('button', { key: breed, onClick: () => this.handleClick(breed), __source: { fileName: _jsxFileName, lineNumber: 22 }, __self: this },
+            _react2.default.createElement('span', { __source: { fileName: _jsxFileName, lineNumber: 23 }, __self: this }, breed)));
+
+
+      });
+      this.setState({ breeds: breeds });
+    });
+  }
+
+  handleClick(breed) {
+    fetch(\`https://dog.ceo/api/breed/\${breed}/images/random\`).
+    then(results => {
+      return results.json();
+    }).
+    then(data => {
+      this.setState({ breedImage: data.message, breed });
+    });
+  }
+
+  render() {
+    return (
+      _react2.default.createElement('div', { className: 'breeds', __source: { fileName: _jsxFileName, lineNumber: 43 }, __self: this },
+        _react2.default.createElement('div', { className: 'breed-list', __source: { fileName: _jsxFileName, lineNumber: 44 }, __self: this },
+          this.state.breeds),
+
+        this.state.breed ?
+        _react2.default.createElement('div', { className: 'breed-image__container', __source: { fileName: _jsxFileName, lineNumber: 48 }, __self: this },
+          _react2.default.createElement('div', { className: 'breed-image', __source: { fileName: _jsxFileName, lineNumber: 49 }, __self: this },
+            _react2.default.createElement('img', { src: this.state.breedImage, alt: 'breed', __source: { fileName: _jsxFileName, lineNumber: 50 }, __self: this })),
+
+          _react2.default.createElement('button', { className: 'refresh-image', onClick: () => this.handleClick(this.state.breed), __source: { fileName: _jsxFileName, lineNumber: 52 }, __self: this }, 'Get a new picture')) :
+
+        null));
+
+
+
+  }} renders and matches our snapshot 1`] = `
+<div
+  className="breeds"
+>
+  <div
+    className="breed-list"
+  />
+</div>
+`;
